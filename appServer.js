@@ -98,25 +98,6 @@ app.get("/clickBuy", function(req, res){
     res.send("success");
 });
 
-// 创建角色
-app.get("/createRole", function(req, res){
-
-    //获取物品
-    var meta;
-    var account = req.query.account;
-    var msg = "TRUE";
-    var nick = req.query.nick;
-    OsBaseData.deployed().then(function(instance) {
-        meta = instance;
-        return meta.createPlayer.call(account, {from: account}, nick, {from: nick});
-    }).catch(function(e) {
-        console.log(e);
-        msg = "FALSE";
-    });
-    
-    res.send(msg == "TRUE");
-});
-
 // 开始冒险
 app.get("/explore", function(req, res){
     // var timestamp = Date.parse(new Date());
