@@ -64,7 +64,7 @@ class adventure : public contract {
         print( "explore: ", name{user}, " with ", res, " and ", memo , "\n");
         require_auth( user );
 
-        uint64_t idx = atoi(memo.c_str());
+        uint64_t idx = strtoull(memo.c_str(), NULL, 10);
         //checksum256 cksum;    
         //sha256(const_cast<char*>(memo.c_str()), memo.length(), &cksum);
         //checksum256toUint128(cksum, lidx);    
@@ -81,7 +81,7 @@ class adventure : public contract {
             });
         }else{
             advdata.modify( itr, 0, [&]( auto& d ) {
-                eosio_assert(d.player == user, "different user, unexpected!!");
+                eosio_assert(d.player == user, "different user, unexpected!");
                 d.resource += res;
             });
         }
