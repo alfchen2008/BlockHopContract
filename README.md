@@ -11,3 +11,7 @@ Exchange game prop with others use EOS standard exchange contract.
 # Crypto+Oasis+Presentation.key
 
 The presentation file of block hop game for EOS HongKong Hackathon
+
+# appServer.js: javascript frontend
+
+appServer.js need : nodejs, npm, express, xmlhttprequest, eosjs
